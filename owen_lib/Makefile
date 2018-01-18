@@ -18,10 +18,13 @@ clean:
 	rm $(OBJECTS) $(SHAREDOBJ)
 	
 install:
-	cp $(SHAREDOBJ) /usr/lib64/
-	cp owen_io.h /usr/include/
-	
+	cp $(SHAREDOBJ) /usr/local/lib/
+	mkdir /usr/local/include/owen
+	cp owen_io.h /usr/local/include/owen/
+	echo /usr/local/lib > /etc/ld.so.conf.d/owen_io
+	ldconfig
 uninstall:
-	rm /usr/lib64/$(SHAREDOBJ)
-	rm /usr/include/owen_io.h
-
+	rm /usr/local/lib/$(SHAREDOBJ)
+	rm /usr/local/include/owen/owen_io.h
+	rm /etc/ld.so.conf.d/owen_io
+	ldconfig

@@ -1,7 +1,7 @@
 #include "testowen.h"
 #include "ui_testowen.h"
 #include <stdio.h>
-#include <owen_io.h>
+#include </usr/local/include/owen/owen_io.h>
 
 TestOwen::TestOwen(QWidget *parent) :
     QWidget(parent),
@@ -77,5 +77,4 @@ void TestOwen::on_cmdConnect_clicked()
     float val=0.0;
     int r = read_data(fd, addr, idx, &val, 12);
     printf("r=%d val=%f\n",r,val);
-    //printf("spd=%d %d\n",B9600, spd);
 }
